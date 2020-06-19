@@ -10,9 +10,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class HelloController {
 
-    @ResponseBody
     @RequestMapping("/hello")
-    public User hello(@RequestParam("id") Integer id, @RequestParam("name") String name, Model model){
+    public String hello(@RequestParam("id") Integer id, @RequestParam("name") String name, Model model){
         System.out.println(id+"--------"+name);
         model.addAttribute("id",id);
         model.addAttribute("name",name);
@@ -21,6 +20,6 @@ public class HelloController {
         u.setId(id);
         u.setName(name);
 
-        return u;
+        return "index";
     }
 }
